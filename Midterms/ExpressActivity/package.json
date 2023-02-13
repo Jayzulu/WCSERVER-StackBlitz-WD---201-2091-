@@ -1,0 +1,14 @@
+{
+  "name": "express-starter",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.17.1",
+    "multer": "*"
+  },
+  "scripts": {
+    "start": "node index.js"
+  }
+}
