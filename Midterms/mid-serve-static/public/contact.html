@@ -15,8 +15,26 @@
       <li><a class="active" href="contact.html">Contact</a></li>
       <li><a href="upload.html">Upload</a></li>
     </ul>
-    <h1>This is the Contact Page</h1>
-    <h2>WCSERVER</h2>
-    <h2>Zulueta, J Victorino G.</h2>
+
+    <h1>Contact Information</h1>
+    <form method="post" action="/">
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      <div>
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required />
+      </div>
+      <div>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+      <button type="submit">Send</button>
+    </form>
   </body>
 </html>
