@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 
+
 app.use(express.static('public'));
 
 const path = require('path');
@@ -30,18 +31,12 @@ app.get('/file-upload', (req, res) => {
   res.sendFile(__dirname + '/' + 'file-upload.html');
 });
 
+
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/' + 'index.html');
 });
 
 
-var bodyParser = require('body-parser');
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
-
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/' + 'index.html');
-});
 
 app.use(express.urlencoded());
 
@@ -54,25 +49,15 @@ app.get('/', (req, res, next) => {
 
   <input type="submit">
 </form>`);
+});
 
-
-
-app.post('/process_post', urlencodedParser, function (req, res) {
-  response = {
-    first_name: req.body.first_name,
-    last_name: req.body.last_name,
-  };
-
-  app.post('/', function (req, res, next) {
-    res.send(JSON.stringify(req.body));
-  });
-
-  console.log(response);
-  res.end(JSON.stringify(response));
+app.post('/', function (req, res, next) {
+  res.send(JSON.stringify(req.body));
 });
 
 
-//app listen server
+
+
 app.listen(3000, function () {
   console.log('Server is running on port 3000');
 });
