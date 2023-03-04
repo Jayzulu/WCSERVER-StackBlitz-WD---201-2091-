@@ -16,7 +16,11 @@
         <li><a class="active"a href="upload.html">Upload</a></li>
 
       </ul>
-      <h1> This is the Upload Page</h1>
+      <h1> Upload files here</h1>
       <h2> WCSERVER</h2>
+      <form action="/uploads" enctype="multipart/form-data" method="post">
+        <input type="file" name="myFile" /> <br />
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
