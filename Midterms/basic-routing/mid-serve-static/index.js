@@ -47,6 +47,10 @@ app.get('/', (req, res, next) => {
 </form>`);
 });
 
+app.all('*', (req, res) => {
+  res.status(404).sendFile(__dirname + '/' + 'error.html');
+});
+
 app.post('/', function (req, res, next) {
   res.send(JSON.stringify(req.body));
 });
