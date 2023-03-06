@@ -18,10 +18,10 @@ app.get('/api/movies', (req, res) => {
     res.send(movies);
 });
 
-app.get('/api/movies/:id/:title', (req, res) => {
+app.get('/api/movies/:id', (req, res) => {
     const movie = movies.find(h => h.id === parseInt(req.params.id));
     if (!movie) return res.status(404).send('The movie with the given ID was not found.');
-    res.send(movies);
+    res.send(movie);
 });
 
 app.listen(4000, () => console.log('listening on port 4000'));
