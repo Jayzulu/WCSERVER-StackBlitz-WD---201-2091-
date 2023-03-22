@@ -1,22 +1,28 @@
 const express = require('express');
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('My New App!');
+const dishes = [
+  {
+    type: 'Sisig',
+    title: 'Superman',
+  },
+  {
+    type: 'Salpicao',
+    title: 'Thor',
+  },
+  {
+    type: 'Bagnet',
+    title: 'Iron Man',
+  },
+];
+app.get('/api/dishes', (req, res) => {
+  res.send(dishes);
 });
 
-app.get('/api/heroes', (req, res) => {
-    res.send(['Superman', 'Iron Man', 'Batman', 'Hulk']);
+app.get('/api/dishes/:id', (req, res) => {
+  const dish = dishes.find((h) => h.id === parseInt(req.params.id));
+  if (!dish) return res.status(404).send('Record not found.');
+  res.send(dish);
 });
-
-app.get('/api/heroes/:id', (req, res) => {
-    res.send(req.params.id);
-});
-
-
-app.get('/api/heroes/:title/:publisher', (req, res) => {
-    res.send([req.params, req.query]);
-});
-
 
 app.listen(3000, () => console.log('listening on port 3000'));
