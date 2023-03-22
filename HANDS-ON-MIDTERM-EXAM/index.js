@@ -4,15 +4,18 @@ const app = express();
 const dishes = [
   {
     type: 'Sisig',
-    title: 'Superman',
+    province: 'Pampanga',
+    price: 220
   },
   {
     type: 'Salpicao',
-    title: 'Thor',
+    province: 'Quezon',
+    price: 180
   },
   {
     type: 'Bagnet',
-    title: 'Iron Man',
+    province: 'Ilocos',
+    price: 370
   },
 ];
 
@@ -20,8 +23,13 @@ app.get('/api/dishes', (req, res) => {
   res.send(dishes);
 });
 
-app.get('/api/dishes/:id', (req, res) => {
-  const dish = dishes.find((h) => h.id === parseInt(req.params.id));
+app.get('/api/dishes/:search', (req, res) => {
+  const search = req.params.search;
+  const dish = dishes.find(
+    (h) =>
+    h.type.toLowerCase().includes(search.toLowerCase()) || 
+    h.province.toLowerCase().includes(search.toLowerCase()) ||
+    h.price === parseInt(search));
   if (!dish) return res.status(404).send('Record not found.');
   res.send(dish);
 });
