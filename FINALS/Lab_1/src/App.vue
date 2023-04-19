@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-  <div :style="image"></div>
+    <div :style="image"></div>
     <h1>{{ msg }}</h1>
-    <h2> J Victorino G. Zulueta</h2>
+    <h2>J Victorino G. Zulueta</h2>
     <profile></profile>
     <skills></skills>
     <education></education>
@@ -10,26 +10,24 @@
 </template>
 
 <script>
-import profile from './profile.vue'
-import skills from './skills.vue'
-import education from './education.vue'
+import profile from './profile.vue';
+import skills from './skills.vue';
+import education from './education.vue';
 
 export default {
   name: 'app',
   components: {
     profile,
     skills,
-    education
+    education,
   },
-  
-  data () {
+
+  data() {
     return {
-      msg: 'Resume/CV'
-    }
-  }
-}
-
-
+      msg: 'Resume/CV',
+    };
+  },
+};
 </script>
 
 <style>
@@ -40,7 +38,6 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: Gold;
 }
-
-
 </style>
